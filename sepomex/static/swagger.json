@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.0",
+
+  "info": {
+    "description": "ATRIBUTOS PARA SWAGGER-SEPOMEX_API",
+    "version": "1.0.0",
+    "title": "SWAGGER-SEPOMEX_API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+
+  "tags": [
+    {
+      "name": "SEPOMEX API",
+      "description": "Proyecto SEPOMEX/API"
+    }
+  ],
+
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+
+  "components": {
+    "schemas": {
+      "query": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "tipo": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "cp": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "estado": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "colonia": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "municipio": {
+        "type": "string",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+
+  "paths": {
+    "/query?tipo=cp&cp={cp}": {
+      "get": {
+        "tags": [
+          "Consulta por código postal"
+        ],
+
+
+        "summary": "Consulta por código postal.",
+
+        "parameters": [{
+          "name": "cp",
+          "in": "path",
+          "description": "Código postal",
+          "required": true,
+          "type": "string",
+          "schema" : {
+              "$ref": "#/components/schemas/cp"
+          }
+        }],
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "404": {
+            "description": "No válido",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "300": {
+            "description": "Falta proveer información",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          }
+        }
+      }
+    },
+
+    "/query?tipo=estado&estado={estado}": {
+      "get": {
+        "tags": [
+          "Consulta por estado"
+        ],
+
+
+        "summary": "Consulta por estado.",
+
+        "parameters": [{
+          "name": "estado",
+          "in": "path",
+          "description": "estado",
+          "required": true,
+          "type": "string",
+          "schema" : {
+              "$ref": "#/components/schemas/estado"
+          }
+        }],
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "404": {
+            "description": "No válido",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "300": {
+            "description": "Falta proveer información",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          }
+        }
+      }
+    },
+
+    "/query?tipo=municipio&municipio={municipio}": {
+      "get": {
+        "tags": [
+          "Consulta por municipio"
+        ],
+
+
+        "summary": "Consulta por municipio.",
+
+        "parameters": [{
+          "name": "municipio",
+          "in": "path",
+          "description": "Municipio",
+          "required": true,
+          "type": "string",
+          "schema" : {
+              "$ref": "#/components/schemas/municipio"
+          }
+        }],
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "404": {
+            "description": "No válido",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "300": {
+            "description": "Falta proveer información",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          }
+        }
+      }
+    },
+
+    "/query?tipo=colonia&colonia={colonia}": {
+      "get": {
+        "tags": [
+          "Consulta por colonia"
+        ],
+
+
+        "summary": "Consulta por colonia.",
+
+        "parameters": [{
+          "name": "colonia",
+          "in": "path",
+          "description": "Colonia",
+          "required": true,
+          "type": "string",
+          "schema" : {
+              "$ref": "#/components/schemas/colonia"
+          }
+        }],
+
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "404": {
+            "description": "No válido",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          },
+          "300": {
+            "description": "Falta proveer información",
+            "schema": {
+              "$ref": "#/components/schemas/query"
+            }
+          }
+        }
+      }
+    }
+  }
+}
