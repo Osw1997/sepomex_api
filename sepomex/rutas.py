@@ -4,6 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import json
 from Scripts import consulta_data
 
+
+
 user = 'pooe1997@hotmail.com'
 pwd = 'hola_22'
 users = {
@@ -21,6 +23,7 @@ def verify_password(username, password):
 reader = consulta_data.Consultor()
 
 @app.route('/query', methods=['GET'])
+@app.route('/swagger/query', methods=['GET'])
 @auth.login_required
 def query():
     tipo = request.args.get('tipo', default=None, type=str)
