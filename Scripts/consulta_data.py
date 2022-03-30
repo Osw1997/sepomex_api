@@ -25,7 +25,7 @@ class Consultor:
         data = data.merge(self.colonias, how='inner', left_on=['CP', 'ID_ASENTAM'], right_on=['CP', 'ID_ASENTAM'])
 
         # print(data[columnas_ordenadas])
-        return data[columnas_ordenadas].to_json(orient="table")
+        return data[columnas_ordenadas].head(50).to_json(orient="table")
 
     def from_municipio(self, municipio):
         # data = sql(f"select * from self.estados where ESTADO == '{estado}'")
@@ -35,7 +35,7 @@ class Consultor:
         data = data.merge(self.colonias, how='inner', left_on=['CP', 'ID_ASENTAM'], right_on=['CP', 'ID_ASENTAM'])
 
         # print(data[columnas_ordenadas])
-        return data[columnas_ordenadas].to_json(orient="table")
+        return data[columnas_ordenadas].head(50).to_json(orient="table")
 
     def from_colonia(self, colonia):
         # data = sql(f"select * from self.estados where ESTADO == '{estado}'")
@@ -45,7 +45,7 @@ class Consultor:
         data = data.merge(self.estados, how='inner', left_on=['CLAVE_EDO', 'CLAVE_MUNI', 'ID_ASENTAM'], right_on=['CLAVE_EDO', 'CLAVE_MUNI', 'ID_ASENTAM'])
 
         # print(data[columnas_ordenadas])
-        return data[columnas_ordenadas].to_json(orient="table")
+        return data[columnas_ordenadas].head(50).to_json(orient="table")
 
     def from_cp(self, cp):
         # data = sql(f"select * from self.estados where ESTADO == '{estado}'")
@@ -55,4 +55,4 @@ class Consultor:
         data = data.merge(self.estados, how='inner', left_on=['CLAVE_EDO', 'CLAVE_MUNI', 'ID_ASENTAM'], right_on=['CLAVE_EDO', 'CLAVE_MUNI', 'ID_ASENTAM'])
 
         # print(data[columnas_ordenadas])
-        return data[columnas_ordenadas].to_json(orient="table")
+        return data[columnas_ordenadas].head(50).to_json(orient="table")
